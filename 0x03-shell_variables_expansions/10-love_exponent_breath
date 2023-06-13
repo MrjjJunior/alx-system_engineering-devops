@@ -1,2 +1,3 @@
 #!/bin/bash
-echo "hello $USER"
+user_name=$(name)
+echo "hello $user_name!"
