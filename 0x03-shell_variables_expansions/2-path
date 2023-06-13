@@ -1,2 +1,2 @@
 #!/bin/bash
-expert PATH=$PATH:/action
+export PATH=$PATH:/action
