@@ -1,3 +1,2 @@
 #!/bin/bash
-user_name=$(name)
-echo "hello, $user_name!"
+echo $(($BREATH**$LOVE))
