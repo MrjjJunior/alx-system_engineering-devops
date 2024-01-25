@@ -4,6 +4,6 @@
 for file in *; do
     if [[ $file != .* ]]; then
         name=$(echo "$file" | cut -d '-' -f2-)
-        echo "$name"
+        echo "$name " 
     fi
 done
