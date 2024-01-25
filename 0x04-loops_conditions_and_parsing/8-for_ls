@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+#Script content of the current dirtory in a list format only with the name part
+
+for file in *; do
+    if [[ $file != .* ]]; then
+        name=$(echo "$file" | cut -d '-' -f2-)
+        echo "$name"
+    fi
+done
