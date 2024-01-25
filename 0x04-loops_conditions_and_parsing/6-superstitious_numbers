@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+#Script that display number from 1-20 and prints additional info on specific iteration
+
+it=1
+while [ $it -le 20 ]; do
+    case $it in
+        4)
+            echo "$it"
+            echo "bad luck from China"
+            ;;
+        
+        9)
+            echo $it
+            echo "bad luck from Japan"
+            ;;
+
+        17)
+            echo $it
+            echo "bad luck from Italy"
+            ;;
+
+        *)
+            echo $it
+            ;;
+            
+    esac
+    ((it++))
+done

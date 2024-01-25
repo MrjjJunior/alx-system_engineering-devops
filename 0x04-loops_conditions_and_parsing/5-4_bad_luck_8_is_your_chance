@@ -1,0 +1,15 @@
+#!/usr/bin/env bash 
+#Loops "Best School" 1-10 if i=4 displays "bad luck" if i=8 displays"goodluck"
+
+it=0
+
+while [ $it -lt 10 ]; do
+    if [ $it -eq 3 ]; then
+        echo "bad luck"
+    elif [ $it -eq 7 ]; then
+        echo "good luck"
+    else
+        echo "Best School"
+    fi
+        ((it++))
+done
