@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#Script diplays current running process
+#ps: display process information
+
+ps -auxf
