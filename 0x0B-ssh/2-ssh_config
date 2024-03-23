@@ -1,0 +1,6 @@
+#include /etc/ssh/ssh_config.d/*.conf
+
+Host ubuntu
+    IdentityFile ~/.ssh/school
+    PreferredAuthentication publickey
+    PasswordAuthentication no
