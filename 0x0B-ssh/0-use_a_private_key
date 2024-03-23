@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+#ssh to connect to server
 eval $("ssh-agent")
 
 ssh-add ~/.ssh/school
