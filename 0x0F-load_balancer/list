@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# it list contents of directory
+
+ls
