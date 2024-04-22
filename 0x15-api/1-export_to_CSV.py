@@ -1,4 +1,4 @@
-'''#!/usr/bin/python3
+#!/usr/bin/python3
 """Script to export data in the CSV format"""
 import csv
 import requests 
@@ -40,3 +40,4 @@ if __name__ == "__main__":
             [user_id, username, t.get("completed"), t.get("title")]
          ) for t in todos]
 
+'''
