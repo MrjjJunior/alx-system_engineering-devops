@@ -3,19 +3,16 @@
 import requests
 
 def number_of_subscribers(subreddit):
-    url = f"https://www.reddit.com/r/{subreddit}/about.json"
+    url = f"https://www.reddit.com/r/{subreddit}/about.json".format(subreddit)
     headers = {'User-Agent': 'Custom User Agent'}
 
-    try:
-        response = requests.get(url, headers=headers)
-        response.raise_for_status()
+    response = requests.get(url, headers=headers, allow_redirects=False)
+    
+    if response.status_code == 200:
         data = response.json()
-        return data['data']['subscribers']
-    except requests.exceptions.RequestException as e:
-        print(f"Error: {e}")
+        subscribers = data['data']['subscribers']
+        return subscribers
+    else:
         return 0
-
-if __name__ == "__main__":
-    subreddit = input("Enter a subreddit: ")
-    ptint(number_of_subscribers(subreddit))
+        
 
