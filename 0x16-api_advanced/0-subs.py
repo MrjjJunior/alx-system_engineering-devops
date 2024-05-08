@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-'''  '''
+''' 
+Script returns number of subscribers
+'''
 import requests
 
 def number_of_subscribers(subreddit):
