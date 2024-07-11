@@ -1,24 +1,8 @@
 #!/usr/bin/env bash
-
-#check installtion if not it installs it
-if ! command -v nginx &> /dev/null; then
-	echo "Nginx not installed. Installing now.."
-	apt-get update
-	apt-get install -y nginx
-fi
-
-#check if Nginx is running if not it starts it
-if ! pgrep nginx &> /dev/null; then
-	echo "Nginx is not running. Starting now..."
-	service nginx start
-fi 
-
-#checks if Nginx is listening on port 80
-if ! nc -z 0 80; then
-	echo "Nginx not listeningon port 80. configuring..."
-	sed -i 's/80 default_server;/80 default_server;/g' /etc/nginx/sites-available/default
-	service nginx restart
-fi 
-
-
-echo "Nginx is now configured to listen on port 80."
+# Setting up server to curl port 80 with no issues
+apt-get update
+apt-get -y install curl
+rm /etc/nginx/sites-available/*
+rm /etc/nginx/sites-enabled/*~
+sed -i 's/8080/80/g' /etc/nginx/sites-enabled/default
+sudo service nginx restart

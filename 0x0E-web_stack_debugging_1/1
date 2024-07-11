@@ -1,4 +1,1 @@
-Nginx is not running. Starting now...
-Job for nginx.service failed because the control process exited with error code.
-See "systemctl status nginx.service" and "journalctl -xeu nginx.service" for details.
-Nginx is now configured to listen on port 80.
+-bash: ./0-nginx_likes_port_80: Permission denied
