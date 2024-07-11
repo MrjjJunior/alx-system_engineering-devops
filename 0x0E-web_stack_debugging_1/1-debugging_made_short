@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 # Configures nginx
 sed -i 's/listen 80;/listen 80 default_server;/g' /etc/nginx/sites-available/default
-service nginx status
+nginx -s reload
 
