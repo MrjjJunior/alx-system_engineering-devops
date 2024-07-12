@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 #    script transfers files to the server
 #    The path to the file to be transferred.
 #    The IP of the server to transfer the file to.
