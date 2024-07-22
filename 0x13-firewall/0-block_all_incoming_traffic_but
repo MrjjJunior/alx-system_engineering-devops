@@ -5,6 +5,11 @@
 sudo apt update
 sudo apt install ufw
 
+# blocking incoming traffic allowing outgoing
+
+sudo ufw defualt deny incoming
+sudo ufw defualt allow outgoing
+
 # Configuring UFW
 
 sudo ufw allow ssh
