@@ -1,0 +1,14 @@
+#!/usr/bin/env bash 
+
+# Installing UFW
+
+sudo apt update
+sudo apt install ufw
+
+# Configuring UFW
+
+sudo ufw allow ssh
+sudo ufw allow https
+sudo ufw allow http
+
+
