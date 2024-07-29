@@ -1,31 +1,30 @@
 #!/usr/bin/python3
-'''
-gather employee data from API
-'''
-
-import re
+"""
+script that, using this REST API,
+returns information about his/her TODO list progress.
+"""
 import requests
 import sys
 
-REST_API = "https://jsonplaceholder.typicode.com"
 
-if __name__ == '__main__':
-    if len(sys.argv) > 1:
-        if re.fullmatch(r'\d+', sys.argv[1]):
-            id = int(sys.argv[1])
-            req = requests.get('{}/users/{}'.format(REST_API, id)).json()
-            task_req = requests.get('{}/todos'.format(REST_API)).json()
-            emp_name = req.get('name')
-            tasks = list(filter(lambda x: x.get('userId') == id, task_req))
-            completed_tasks = list(filter(lambda x: x.get('completed'), tasks))
-            print(
-                'Employee {} is done with tasks({}/{}):'.format(
-                    emp_name,
-                    len(completed_tasks),
-                    len(tasks)
-                )
-            )
-            if len(completed_tasks) > 0:
-                for task in completed_tasks:
-                    print('\t {}'.format(task.get('title'))) 
+def employee_progess():
+    """ Gets employee progess """
+    id = sys.argv[1]
+    url = f'https://jsonplaceholder.typicode.com/'
+    users = f'users?id={id}'
+    todos = f'todos?userId={id}'
+    done = f'{todos}&completed=true'
+    notDone = f'{todos}&completed=false'
+    userData = requests.get(f'{url}{users}').json()
+    Name = userData[0].get("name")
+    todosData = requests.get(f'{url}{todos}').json()
+    todosDone = requests.get(f'{url}{done}').json()
+    doneN = len(todosDone)
+    totalN = len(todosData)
+    print(f'Employee {Name} is done with tasks({doneN}/{totalN}):')
+    for task in todosDone:
+        print("\t "+task.get("title"))
 
+
+if __name__ == "__main__":
+    employee_progess()
