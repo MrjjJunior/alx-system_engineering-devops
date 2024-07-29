@@ -1,4 +1,4 @@
-#!/user/bin/python3
+#!/usr/bin/python3
 ''' script that gets employee progress '''
 import requests
 import sys
