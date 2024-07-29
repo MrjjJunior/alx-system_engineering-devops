@@ -1,17 +1,21 @@
+#!/user/bin/python3
+''' script that gets employee progress '''
 import requests
 import sys
 
+
 def fetch_employee_todo_progress(employee_id):
     # Base URLs for the API
+    lnk = f"https://jsonplaceholder.typicode.com/todos?userId={employee_id}"
     users_url = f"https://jsonplaceholder.typicode.com/users/{employee_id}"
-    todos_url = f"https://jsonplaceholder.typicode.com/todos?userId={employee_id}"
+    todos_url = lnk
 
     # Fetch user data
     user_response = requests.get(users_url)
     if user_response.status_code != 200:
         print(f"Failed to retrieve data for employee ID {employee_id}")
         return
-    
+
     user_data = user_response.json()
     employee_name = user_data.get("name")
 
@@ -20,7 +24,6 @@ def fetch_employee_todo_progress(employee_id):
     if todos_response.status_code != 200:
         print(f"Failed to retrieve TODO list for employee ID {employee_id}")
         return
-    
     todos_data = todos_response.json()
 
     # Calculate the number of done and total tasks
@@ -29,9 +32,12 @@ def fetch_employee_todo_progress(employee_id):
     number_of_done_tasks = len(done_tasks)
 
     # Display the result
-    print(f"Employee {employee_name} is done with tasks({number_of_done_tasks}/{total_tasks}):")
+    t = f"Employee {employee_name} is done with"
+    t1 = f" tasks({number_of_done_tasks}/{total_tasks}):"
+    print(t + t1)
     for task in done_tasks:
         print(f"\t {task.get('title')}")
+
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
@@ -45,4 +51,3 @@ if __name__ == "__main__":
         sys.exit(1)
 
     fetch_employee_todo_progress(employee_id)
-
